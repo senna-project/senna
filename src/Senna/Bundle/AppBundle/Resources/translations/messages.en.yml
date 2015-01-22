@@ -1,0 +1,14 @@
+senna:
+  header:
+      search: Search
+  security:
+      login:
+         username: Username
+         password: Password
+         remember_me: Remember me
+         submit: Login
+  menu:
+      dashboard: Dashboard
+      rooms: Rooms
+      command: Command
+      settings: Settings

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>Senna</title>
+        <link rel="stylesheet" href="/css/compiled/bootstrap.css" />
+        <link rel="stylesheet" href="/css/compiled/app.css" />
+
+    </head>
+    <body class="{% block bodyClass %}{% endblock %}">
+    {% block body %}
+        <header id="header" class="navbar" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/" class="navbar-brand">Senna </a>
+                </div>
+                <div class="head-inner navbar-collapse bs-navbar-collapse collapse">
+                    {{ knp_menu_render('main') }}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">{{ app.user }}</a></li>
+                    </ul>
+                    <!--<div class="search-box col-md-4" >
+                        <form method="get" action="/search/index/">
+                            <input  type="text" size="20" name="q" id="q" class="form-control" accesskey="f" />
+                            <button type="submit" class="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </form>
+                    </div>-->
+                </div>
+            </div>
+        </header>
+        <div class="site-content" data-pjax-container>
+            {% block content %}
+            {% endblock content %}
+        </div>
+        {% endblock body %}
+        <script src="/web/app.js"></script>
+    </body>
+</html>

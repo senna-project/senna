@@ -1,0 +1,8 @@
+sylius_resource:
+    resources:
+        senna.room:
+            driver: doctrine/orm
+            classes:
+                controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
+                model: Senna\Bundle\AppBundle\Model\Room
+

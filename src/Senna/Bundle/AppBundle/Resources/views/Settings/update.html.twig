@@ -1,0 +1,19 @@
+{% extends '@SennaApp/layout.html.twig' %}
+
+{% block bodyClass %}{{ parent() }} settings general update{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="head col-md-8">
+            <h1>General setting</h1>
+        </div>
+
+        <div class="clearbox">
+            <div class="col-md-8">
+                <form action="{{ path('settings') }}" method="post" class="form-horizontal">
+                    {{ form_widget(form) }}
+                    <input type="submit" class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

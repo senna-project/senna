@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="senna.security.interactive_login_listener.class">Senna\Bundle\EventListener\LastLoginListener</parameter>
+        <parameter key="senna.security.login_manager.class">Senna\Bundle\Security\LoginManager</parameter>
+        <parameter key="senna.security.interactive_login_listener.class">Senna\Bundle\AppBundle\EventListener\UserListener</parameter>
+        <parameter key="senna.user.user_provider.username.class">Senna\Bundle\AppBundle\Security\UserProvider</parameter>
+        <parameter key="senna.menu.builder.class">Senna\Bundle\AppBundle\Menu\MenuBuilder</parameter>
+        <parameter key="senna.setting.meta.class">Senna\Bundle\AppBundle\Settings\GeneralSettingsSchema</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="senna.user.user_provider.username" class="%senna.user.user_provider.username.class%">
+            <argument type="service" id="senna.repository.user" />
+        </service>
+
+        <service id="senna.user.user_listener" class="%senna.security.interactive_login_listener.class%">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="doctrine.event_subscriber" />
+        </service>
+
+        <!--<service id="senna.security.interactive_login_listener" class="%senna.security.interactive_login_listener.class%" scope="request">
+            <argument type="service" id="security.encoder_factory" />
+            <tag name="kernel.event_listener" event="security.interactive_login" method="setLocaleForAuthenticatedUser" />
+            <tag name="kernel.event_listener" event="kernel.request" method="setLocaleForUnauthenticatedUser" />
+        </service>-->
+
+
+        <service id="tempo.menu.builder" class="%senna.menu.builder.class%">
+            <argument type="service" id="knp_menu.factory" />
+            <argument type="service" id="security.context" />
+            <argument type="service" id="translator" />
+            <argument type="service" id="event_dispatcher" />
+            <call method="setRequest">
+                <argument type="service" id="request" on-invalid="null" strict="false" />
+            </call>
+        </service>
+
+        <service id="senna.menu" class="%senna.menu.builder.class%" factory-service="tempo.menu.builder" factory-method="mainMenu">
+            <tag name="knp_menu.menu" alias="main" />
+        </service>
+
+        <service id="senna.settings_schema.meta" class="%senna.setting.meta.class%">
+            <tag name="sylius.settings_schema" namespace="general" />
+        </service>
+
+    </services>
+
+</container>

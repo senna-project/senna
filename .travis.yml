@@ -1,0 +1,43 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm-nightly
+
+matrix:
+    allow_failures:
+        - php: hhvm-nightly
+
+before_script:
+    - echo "Starting install" > install.log
+
+    - npm install
+    - npm -v
+    - bower -version
+    - bower update --config.interactive=false --allow-root
+
+    # Composer
+    - composer self-update
+    - composer config --global process-timeout 5000
+    - set "COMPOSER_PROCESS_TIMEOUT=5000"
+    - composer install --prefer-source
+
+    # Selenium
+    - sh -e /etc/init.d/xvfb start && export DISPLAY=:99 && wget http://selenium.googlecode.com/files/selenium-server-standalone-2.33.0.jar
+    - java -jar selenium-server-standalone-2.33.0.jar > /dev/null &
+    - sleep 5
+
+    # Install database
+    - php app/console doctrine:database:create -e=test > /dev/null
+    - php app/console doctrine:schema:create -e=test > /dev/null
+    - php app/console doctrine:fixtures:load --no-interaction -e=test > /dev/null
+
+    # Loading web server for selenium
+    - php app/console server:run > error.log &
+
+
+script:
+    - ./bin/phpspec run
+    - ./bin/behat -fprogress --verbose

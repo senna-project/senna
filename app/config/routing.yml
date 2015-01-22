@@ -1,0 +1,2 @@
+_senna_user:
+    resource: "@SennaAppBundle/Resources/config/routing.yml"

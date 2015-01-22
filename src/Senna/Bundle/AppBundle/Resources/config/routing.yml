@@ -1,0 +1,39 @@
+login:
+    path: /login
+    defaults: { _controller: "SennaAppBundle:Security:login" }
+
+login_check:
+    path: /login_check
+    defaults: { _controller: "SennaAppBundle:Security:check" }
+
+user_logout:
+    path: /logout
+    defaults: { _controller: "SennaAppBundle:Security:logout" }
+
+
+dashboard:
+    path: /
+    defaults: { _controller: "SennaAppBundle:Dashboard:main" }
+
+settings:
+    path: /settings
+    defaults:
+        _controller: "sylius.controller.settings:updateAction"
+        namespace: general
+        template: SennaAppBundle:Settings:update.html.twig
+
+
+rooms:
+    path: /rooms
+    defaults:
+        _controller: "senna.controller.room:indexAction"
+        _sylius:
+            template: SennaAppBundle:Room:index.html.twig
+
+room_create:
+    path: /room/create
+    defaults:
+        _controller: "senna.controller.room:createAction"
+        _sylius:
+            template: SennaAppBundle:Room:create.html.twig
+            redirect: rooms
