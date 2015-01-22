@@ -1,70 +1,105 @@
-Symfony Standard Edition
-========================
+Senna
+========
 
-Welcome to the Symfony Standard Edition - a fully-functional Symfony2
-application that you can use as the skeleton for your new applications.
+[![Build Status](https://travis-ci.org/senna-project/senna.svg)](https://travis-ci.org/senna-project/senna)
 
-For details on how to download and get started with Symfony, see the
-[Installation][1] chapter of the Symfony Documentation.
+Home automation project, based on the [**Symfony2**](http://symfony.com) framework.
 
-What's inside?
---------------
+Installation
+------------
 
-The Symfony Standard Edition is configured with the following defaults:
+Requirements:
 
-  * An AppBundle you can use to start coding;
+* [Git](http://git-scm.com/)
+* [Composer](http://getcomposer.org)
+* PHP 5.4 or better
 
-  * Twig as the only configured template engine;
+``` bash
+$ git clone https://github.com/senna-project/senna
+$ cd senna
+$ composer install
+```
 
-  * Doctrine ORM/DBAL;
+Then configure your project and create database.
 
-  * Swiftmailer;
+``` bash
+$ cd senna
 
-  * Annotations enabled for everything.
+# To create the database:
+$ php app/console doctrine:database:create
+$ php app/console doctrine:schema:create
 
-It comes pre-configured with the following bundles:
+# If you want to load sample data, use the following command
+$ php app/console doctrine:fixtures:load
 
-  * **FrameworkBundle** - The core Symfony framework bundle
+# Developper ( NodeJs and Npm required)
+$ npm install
+$ bower install
+$ gulp
 
-  * [**SensioFrameworkExtraBundle**][6] - Adds several enhancements, including
-    template and routing annotation capability
 
-  * [**DoctrineBundle**][7] - Adds support for the Doctrine ORM
+```
 
-  * [**TwigBundle**][8] - Adds support for the Twig templating engine
+You probably need to setting up rights for apache, uses the following commands:
 
-  * [**SecurityBundle**][9] - Adds security by integrating Symfony's security
-    component
+```bash
+$ mkdir -p app/cache app/logs app/data web/uploads
+$ setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs app/data web/uploads
+$ setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs app/data web/uploads
+```
 
-  * [**SwiftmailerBundle**][10] - Adds support for Swiftmailer, a library for
-    sending emails
+[Behat](http://behat.org) scenarios
+-----------------------------------
 
-  * [**MonologBundle**][11] - Adds support for Monolog, a logging library
+You need to copy Behat default configuration file and enter your specific ``base_url``
+option there. Nothing to change if you use `app/console server:run`.
 
-  * [**AsseticBundle**][12] - Adds support for Assetic, an asset processing
-    library
+```bash
+$ cp behat.yml.dist behat.yml
+$ vim behat.yml
+```
 
-  * **WebProfilerBundle** (in dev/test env) - Adds profiling functionality and
-    the web debug toolbar
+Then download [Selenium Server](http://seleniumhq.org/download/), and run it.
 
-  * **SensioDistributionBundle** (in dev/test env) - Adds functionality for
-    configuring and working with Symfony distributions
+```bash
+$ java -jar selenium-server-standalone-2.11.0.jar
+```
 
-  * [**SensioGeneratorBundle**][13] (in dev/test env) - Adds code generation
-    capabilities
+You can run Behat using the following command.
 
-All libraries and bundles included in the Symfony Standard Edition are
-released under the MIT or BSD license.
+``` bash
+$ bin/behat
+```
 
-Enjoy!
+Troubleshooting
+---------------
 
-[1]:  http://symfony.com/doc/2.7/book/installation.html
-[6]:  http://symfony.com/doc/2.7/bundles/SensioFrameworkExtraBundle/index.html
-[7]:  http://symfony.com/doc/2.7/book/doctrine.html
-[8]:  http://symfony.com/doc/2.7/book/templating.html
-[9]:  http://symfony.com/doc/2.7/book/security.html
-[10]: http://symfony.com/doc/2.7/cookbook/email.html
-[11]: http://symfony.com/doc/2.7/cookbook/logging/monolog.html
-[12]: http://symfony.com/doc/2.7/cookbook/assetic/asset_management.html
-[13]: http://symfony.com/doc/2.7/bundles/SensioGeneratorBundle/index.html
-# senna
+If something goes wrong, errors & exceptions are logged at the application level.
+
+````
+tail -f app/logs/prod.log
+tail -f app/logs/dev.log
+````
+
+Docker
+------
+
+You can build a docker image for this project with the following command:
+
+```
+docker build -t senna .
+```
+
+Then run the container:
+
+```
+docker run -p 80:80 -p 8000:8000 senna
+```
+
+or with your current working copy:
+
+```
+docker run -p 80:80 -p 8000:8000 -v $(pwd):/var/www/senna senna
+```
+
+Senna should now be available at http://localhost/
