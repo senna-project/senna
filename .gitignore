@@ -23,9 +23,9 @@
 /web/bundles/
 /web/uploads/
 /web/css/
-!/web/css/compiled
+!/web/css/compiled/all.js
 /web/js/
-!/web/js/compiled
+!/web/js/compiled/all.js
 
 # PHPUnit
 /app/phpunit.xml

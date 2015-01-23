@@ -5,8 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <title>Senna</title>
-        <link rel="stylesheet" href="/css/compiled/bootstrap.css" />
-        <link rel="stylesheet" href="/css/compiled/app.css" />
+        <link rel="stylesheet" href="{{ asset('css/compiled/all.css') }}" />
 
     </head>
     <body class="{% block bodyClass %}{% endblock %}">
@@ -43,6 +42,6 @@
             {% endblock content %}
         </div>
         {% endblock body %}
-        <script src="/web/app.js"></script>
+        <script src="{{ asset('js/compiled/all.js') }}"></script>
     </body>
 </html>

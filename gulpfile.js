@@ -29,6 +29,7 @@ gulp.task('build', [], function() {
 
 gulp.task('scripts', function () {
     gulp.src(vendorFiles)
+        .pipe(concat('all.js'))
         .pipe(gulp.dest(distDir + '/js/compiled'))
 });
 
