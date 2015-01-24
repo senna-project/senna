@@ -11,6 +11,7 @@
         <parameter key="senna.user.user_provider.username.class">Senna\Bundle\AppBundle\Security\UserProvider</parameter>
         <parameter key="senna.menu.builder.class">Senna\Bundle\AppBundle\Menu\MenuBuilder</parameter>
         <parameter key="senna.setting.meta.class">Senna\Bundle\AppBundle\Settings\GeneralSettingsSchema</parameter>
+        <parameter key="senna.twig.extension.intl.class">Twig_Extensions_Extension_Intl</parameter>
     </parameters>
 
     <services>
@@ -47,6 +48,10 @@
 
         <service id="senna.settings_schema.meta" class="%senna.setting.meta.class%">
             <tag name="sylius.settings_schema" namespace="general" />
+        </service>
+        
+        <service id="senna.twig.extension.intl" class="%senna.twig.extension.intl.class%">
+            <tag name="twig.extension" alias="main" />
         </service>
 
     </services>

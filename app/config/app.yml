@@ -6,3 +6,14 @@ sylius_resource:
                 controller: Sylius\Bundle\ResourceBundle\Controller\ResourceController
                 model: Senna\Bundle\AppBundle\Model\Room
 
+        senna.node:
+             driver: doctrine/orm
+             classes:
+                 controller: Senna\Bundle\AppBundle\Controller\NodeController
+                 model: Senna\Bundle\AppBundle\Model\Node
+
+        senna.log:
+             driver: doctrine/orm
+             classes:
+                 controller: Senna\Bundle\AppBundle\Controller\LogController
+                 model: Senna\Bundle\AppBundle\Model\Log

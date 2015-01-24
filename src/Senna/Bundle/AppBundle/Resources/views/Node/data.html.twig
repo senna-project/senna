@@ -1,0 +1,9 @@
+{% block content %}
+    <ul>
+        {% for item in node.data %}
+            {{ dump(item) }}
+            <li>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

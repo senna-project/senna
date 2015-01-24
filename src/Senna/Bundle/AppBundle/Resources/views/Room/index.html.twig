@@ -12,6 +12,7 @@
             <thead>
             <tr>
                 <th>Nom</th>
+                <th>Created</th>
                 <th>Description</th>
                 <th></th>
             </tr>
@@ -21,10 +22,15 @@
                 {% for room in rooms %}
                 <tr>
                     <td>{{ room.name }}</td>
+                    <td>{{ room.createdAt|localizeddate('medium', 'none', app.request.locale) }}</td>
                     <td>{{ room.description }}</td>
                     <td>
-                        <a class="btn btn-default" href="#"><i class="fa fa-times"></i></a>
-                        <a class="btn btn-default" href="#"><i class="fa fa-pencil"></i></a>
+                        <a class="btn btn-default btn-xs" href="{{ path('nodes', {'room': room.id}) }}">
+                            <i class="fa fa-share-alt"></i>
+                            Node
+                        </a>
+                        <a class="btn btn-default btn-xs" href="#"><i class="fa fa-pencil"></i></a>
+                        <a class="btn btn-default btn-xs" href="#"><i class="fa fa-times"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

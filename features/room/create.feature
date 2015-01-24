@@ -1,3 +1,4 @@
+@room
 Feature: Create room
   Background:
     Given I am connected as "senna"

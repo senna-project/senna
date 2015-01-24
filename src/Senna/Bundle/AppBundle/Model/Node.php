@@ -2,7 +2,9 @@
 
 namespace Senna\Bundle\AppBundle\Model;
 
-class Node implements NodeInterface
+use Doctrine\Common\Collections\ArrayCollection;
+
+class Node extends Timestampable implements NodeInterface
 {
     /**
      * @var integer
@@ -15,9 +17,19 @@ class Node implements NodeInterface
     protected $name;
 
     /**
+     * @var name
+     */
+    protected $code;
+
+    /**
      * @var integer
      */
     protected $active;
+
+    /**
+     * @var
+     */
+    protected $data;
 
     /**
      * @var createdAt
@@ -34,20 +46,17 @@ class Node implements NodeInterface
      */
     protected $deletedAt;
 
+    public function __construct()
+    {
+        $this->data = new ArrayCollection();
+    }
+
     /**
      * @return int
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param int $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
     }
 
     /**
@@ -67,7 +76,7 @@ class Node implements NodeInterface
     }
 
     /**
-     * @return int
+     * @return boolean
      */
     public function getActive()
     {
@@ -84,68 +93,37 @@ class Node implements NodeInterface
         return $this;
     }
 
+    /**
+     * @param $code
+     * @return $this
+     */
     public function setCode($code)
     {
-        $this->code  = $code;
+        $this->code = $code;
         return $this;
     }
 
+    /**
+     * @return name
+     */
     public function getCode()
     {
         return $this->code;
     }
 
     /**
-     * @return \DateTime createdAt
+     * @param $data
      */
-    public function getCreatedAt()
+    public function setData($data)
     {
-        return $this->createdAt;
+        $this->data = $data;
     }
 
     /**
-     * @param \DateTime createdAt
-     * @return self
+     * @return ArrayCollection
      */
-    public function setCreatedAt(\DateTime $createdAt)
+    public function getData()
     {
-        $this->createdAt = $createdAt;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime updatedAt
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @param \DateTime $updatedAt
-     * @return self
-     */
-    public function setUpdatedAt(\DateTime $updatedAt)
-    {
-        $this->updatedAt = $updatedAt;
-        return $this;
-    }
-
-    /**
-     * @return updatedAt
-     */
-    public function getDeletedAt()
-    {
-        return $this->deletedAt;
-    }
-
-    /**
-     * @param \DateTime $deletedAt
-     * @return self
-     */
-    public function setDeletedAt(\DateTime $deletedAt)
-    {
-        $this->deletedAt = $deletedAt;
-        return $this;
+        return $this->data;
     }
 }

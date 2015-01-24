@@ -6,6 +6,6 @@
     "bootstrap": "3.3.2",
     "jquery-ui": "1.10.4",
     "modernizr": "2.8.2",
-    "ionicons": "1.5.2"
+    "font-awesome": "4.3.0"
   }
 }

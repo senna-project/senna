@@ -1,3 +1,4 @@
+@user
 Feature: Login
 
   Scenario: Inactive user can't login

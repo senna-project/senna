@@ -2,11 +2,27 @@
 
 namespace Senna\Bundle\AppBundle\Model;
 
-class Room implements RoomInterface
+class Room extends Timestampable implements RoomInterface
 {
     protected $id;
     protected $name;
     protected $description;
+
+    /**
+     * @var createdAt
+     */
+    protected $createdAt;
+
+    /**
+     * @var updatedAt
+     */
+    protected $updatedAt;
+
+    /**
+     * @var updatedAt
+     */
+    protected $deletedAt;
+
 
     public function getId()
     {

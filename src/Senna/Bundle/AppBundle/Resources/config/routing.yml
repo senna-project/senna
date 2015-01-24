@@ -35,5 +35,48 @@ room_create:
     defaults:
         _controller: "senna.controller.room:createAction"
         _sylius:
+            form: Senna\Bundle\AppBundle\Form\Type\RoomType
             template: SennaAppBundle:Room:create.html.twig
             redirect: rooms
+
+node_register:
+    path: /node/register
+    defaults:
+        _controller: senna.controller.node:registerAction
+
+nodes:
+    path: /nodes
+    defaults:
+        _controller: "senna.controller.node:indexAction"
+        _sylius:
+            template: SennaAppBundle:Node:index.html.twig
+
+node_data:
+    path: /node/{id}/data
+    defaults:
+        _controller: "senna.controller.node:dataAction"
+        _sylius:
+            template: SennaAppBundle:Node:data.html.twig
+
+node_create:
+    path: /node/create
+    defaults:
+        _controller: "senna.controller.node:createAction"
+        _sylius:
+            template: SennaAppBundle:Node:create.html.twig
+            form: Senna\Bundle\AppBundle\Form\Type\NodeType
+            redirect: rooms
+
+
+logs:
+    path: /logs
+    defaults:
+        _controller: "senna.controller.log:indexAction"
+        _sylius:
+            template: SennaAppBundle:Log:index.html.twig
+
+
+log_create:
+    path: /api/logs/add
+    defaults:
+        _controller: "senna.controller.log:createAction"

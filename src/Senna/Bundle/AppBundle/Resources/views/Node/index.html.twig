@@ -1,0 +1,43 @@
+{% extends '@SennaApp/layout.html.twig' %}
+
+{% block bodyClass %}{{ parent() }} settings general update{% endblock %}
+{% block content %}
+    <div class="container">
+
+        <div>
+            {{ render(url('node_create')) }}
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Code</th>
+                        <th>Active</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for node in nodes %}
+                        <tr>
+                            <td>{{ node.code }}</td>
+                            <td>{{ node.name }}</td>
+                            <td>{{ node.active }}</td>
+                            <td>
+                                <a class="btn btn-default btn-xs" href="#"><i class="fa fa-pencil"></i></a>
+                                <a class="btn btn-default btn-xs" href="#"><i class="fa fa-times"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-2 logs">
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
