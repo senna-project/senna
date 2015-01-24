@@ -40,4 +40,6 @@ before_script:
 
 script:
     - ./bin/phpspec run
-    - ./bin/behat -fprogress --verbose
+    - ./bin/behat --tags '@user' -fprogress
+    - ./bin/behat --tags '@room' -fprogress
+    - ./bin/behat --tags '@node' -fprogress
