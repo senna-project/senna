@@ -25,7 +25,8 @@
         "sylius/storage":  "0.13.*@dev",
         "polymorph-project/user": "0.3.*@dev",
         "knplabs/knp-menu-bundle": "~2.0",
-        "stof/doctrine-extensions-bundle": "~1.1@dev"
+        "stof/doctrine-extensions-bundle": "~1.1@dev",
+        "wisembly/elephant.io": "~3.0.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
