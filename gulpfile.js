@@ -7,16 +7,16 @@ var vendorDir = './bower_components';
 var srcDir = './src/Senna/Bundle/AppBundle/Resources/assets';
 var distDir = './web';
 
-var vendorFiles = [
+var jsFiles = [
     vendorDir + '/jquery/dist/jquery.js',
-    vendorDir + '/bootstrap/dist/js/bootstrap.js'
+    vendorDir + '/bootstrap/dist/js/bootstrap.js',
+    srcDir + '/js/app.js'
 ];
 
-var lessFile = [
+var lessFiles = [
     vendorDir + '/bootstrap/less/bootstrap.less',
     srcDir + '/styles/app.less'
 ];
-
 
 gulp.task('default', ['build'], function() {
     gulp.start('watch');
@@ -28,14 +28,14 @@ gulp.task('build', [], function() {
 
 
 gulp.task('scripts', function () {
-    gulp.src(vendorFiles)
+    gulp.src(jsFiles)
         .pipe(concat('all.js'))
         .pipe(gulp.dest(distDir + '/js/compiled'))
 });
 
 
 gulp.task('styles', function () {
-    gulp.src(lessFile)
+    gulp.src(lessFiles)
         .pipe(less())
         .pipe(concat('all.css'))
         .pipe(gulp.dest(distDir + '/css/compiled'))

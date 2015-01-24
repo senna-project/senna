@@ -6545,6 +6545,10 @@ body > header .navbar-brand {
 body > header .navbar-nav > li > a {
   color: #eeeeee;
 }
+body > header .navbar-nav > li > a:hover {
+  color: antiquewhite;
+  background: transparent;
+}
 body > header .search-box label a {
   display: none;
 }
