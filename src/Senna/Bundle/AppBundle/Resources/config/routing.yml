@@ -39,6 +39,13 @@ room_create:
             template: SennaAppBundle:Room:create.html.twig
             redirect: rooms
 
+room_delete:
+    path: /room/{id}/delete
+    defaults:
+        _controller: "senna.controller.room:deleteAction"
+        _sylius:
+            redirect: rooms
+
 node_register:
     path: /node/register
     defaults:
@@ -65,6 +72,13 @@ node_create:
         _sylius:
             template: SennaAppBundle:Node:create.html.twig
             form: Senna\Bundle\AppBundle\Form\Type\NodeType
+            redirect: rooms
+
+node_delete:
+    path: /node/{id}/delete
+    defaults:
+        _controller: "senna.controller.node:deleteAction"
+        _sylius:
             redirect: rooms
 
 logs:
