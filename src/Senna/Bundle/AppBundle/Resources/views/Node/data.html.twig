@@ -1,8 +1,9 @@
 {% block content %}
     <ul>
         {% for item in node.data %}
-            {{ dump(item) }}
+
             <li>
+                {{ item.createdAt|localizeddate('medium', 'medium', app.request.locale) }} - {{ (item.data) }}
             </li>
         {% endfor %}
     </ul>

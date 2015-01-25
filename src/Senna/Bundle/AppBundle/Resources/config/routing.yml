@@ -67,7 +67,6 @@ node_create:
             form: Senna\Bundle\AppBundle\Form\Type\NodeType
             redirect: rooms
 
-
 logs:
     path: /logs
     defaults:

@@ -24,7 +24,7 @@
 
         <field name="deletedAt" column="deleted_at" type="datetime" nullable="true" />
 
-        <one-to-many field="data" target-entity="NodeData" mapped-by="data" />
+        <one-to-many field="data" target-entity="NodeData" mapped-by="node" />
 
     </entity>
 
