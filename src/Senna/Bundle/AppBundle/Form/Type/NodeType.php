@@ -13,10 +13,13 @@ class NodeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, array(
+            ->add('name', 'text', array(
+                'required' => true
             ))
-            ->add('code')
-            ->add('active')
+            ->add('code', 'integer')
+            ->add('active', null, array(
+                'required' => false
+            ))
         ;
     }
 

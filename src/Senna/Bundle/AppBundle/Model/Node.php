@@ -27,7 +27,7 @@ class Node extends Timestampable implements NodeInterface
     protected $active;
 
     /**
-     * @var
+     * @var Collection
      */
     protected $data;
 
