@@ -42,7 +42,8 @@
             </call>
         </service>
 
-        <service id="senna.menu" class="%senna.menu.builder.class%" factory-service="tempo.menu.builder" factory-method="mainMenu">
+        <service id="senna.menu" class="%senna.menu.builder.class%">
+            <factory service="tempo.menu.builder" method="mainMenu" />
             <tag name="knp_menu.menu" alias="main" />
         </service>
 
