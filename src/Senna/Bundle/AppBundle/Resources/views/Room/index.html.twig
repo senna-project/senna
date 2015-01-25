@@ -29,7 +29,9 @@
                             <i class="fa fa-share-alt"></i>
                             Node
                         </a>
-                        <a class="btn btn-default btn-xs" href="#"><i class="fa fa-pencil"></i></a>
+                        <a class="btn btn-default btn-xs" href="{{ path('room_update', {'id': room.id}) }}">
+                            <i class="fa fa-pencil"></i>
+                        </a>
                         <a class="btn btn-default btn-xs" href="{{ path('room_delete', {'id' : room.id}) }}"><i class="fa fa-times"></i></a>
                     </td>
                 </tr>

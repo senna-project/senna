@@ -22,7 +22,6 @@ settings:
         namespace: general
         template: SennaAppBundle:Settings:update.html.twig
 
-
 rooms:
     path: /rooms
     defaults:
@@ -38,6 +37,14 @@ room_create:
             form: Senna\Bundle\AppBundle\Form\Type\RoomType
             template: SennaAppBundle:Room:create.html.twig
             redirect: rooms
+
+room_update:
+    path: /room/{id}/update
+    defaults:
+        _controller: "senna.controller.room:updateAction"
+        _sylius:
+            form: Senna\Bundle\AppBundle\Form\Type\RoomType
+            template: SennaAppBundle:Room:create.html.twig
 
 room_delete:
     path: /room/{id}/delete
@@ -73,6 +80,13 @@ node_create:
             template: SennaAppBundle:Node:create.html.twig
             form: Senna\Bundle\AppBundle\Form\Type\NodeType
             redirect: rooms
+
+node_update:
+    path: /node/{id}/update
+    defaults:
+        _controller: senna.controller.room:updateAction
+        _sylius:
+            form: Senna\Bundle\AppBundle\Form\Type\NodeType
 
 node_delete:
     path: /node/{id}/delete
