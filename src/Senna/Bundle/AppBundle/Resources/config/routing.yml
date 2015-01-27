@@ -104,6 +104,6 @@ logs:
 
 
 log_create:
-    path: /api/logs/add
+    path: /api/logs/register
     defaults:
         _controller: "senna.controller.log:createAction"

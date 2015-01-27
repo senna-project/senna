@@ -53,10 +53,13 @@ class Log extends Timestampable
 
     /**
      * @param string $type
+     * @return self
      */
     public function setType($type)
     {
         $this->type = $type;
+
+        return $this;
     }
 
     /**
@@ -69,9 +72,12 @@ class Log extends Timestampable
 
     /**
      * @param string $content
+     * @return self
      */
     public function setContent($content)
     {
         $this->content = $content;
+
+        return $this;
     }
 }
