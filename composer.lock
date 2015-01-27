@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "568aa29d3e2adf08cbf39f5c28845021",
+    "hash": "c93587156c04b609c87295dfeb6eb6e3",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -913,6 +913,320 @@
                 "uploadable"
             ],
             "time": "2015-01-21 20:55:10"
+        },
+        {
+            "name": "hoa/core",
+            "version": "2.15.01.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Core.git",
+                "reference": "edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Core/zipball/edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc",
+                "reference": "edf4d00e68963bbcd6f7ab8f1aa7d8b80e35d7fc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-spl": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "hoa/test": "~1.0"
+            },
+            "suggest": {
+                "ext-mbstring": "ext/mbstring must be present (or a third implementation).",
+                "hoa/console": "To use the `hoa` script.",
+                "hoa/dispatcher": "To use the `hoa` script.",
+                "hoa/router": "To use the `hoa` script."
+            },
+            "bin": [
+                "Bin/hoa"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Core\\": "."
+                },
+                "files": [
+                    "Core.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Core library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "consistency",
+                "core",
+                "data",
+                "event",
+                "library",
+                "listener",
+                "parameter",
+                "protocol"
+            ],
+            "time": "2015-01-23 17:52:18"
+        },
+        {
+            "name": "hoa/http",
+            "version": "0.15.01.06",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Http.git",
+                "reference": "1722c579237ba7cdc1abc3dfac1a77797bfc9d47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Http/zipball/1722c579237ba7cdc1abc3dfac1a77797bfc9d47",
+                "reference": "1722c579237ba7cdc1abc3dfac1a77797bfc9d47",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0",
+                "hoa/stream": "~0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Http\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Http library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "http",
+                "library",
+                "request",
+                "response",
+                "rfc2295",
+                "rfc2324",
+                "rfc2518",
+                "rfc2774",
+                "rfc3229",
+                "rfc4918",
+                "rfc5842",
+                "rfc6585",
+                "rfc7231",
+                "rfc7232",
+                "rfc7233",
+                "rfc7235",
+                "rfc7237",
+                "runtime"
+            ],
+            "time": "2015-01-06 10:47:53"
+        },
+        {
+            "name": "hoa/socket",
+            "version": "0.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Socket.git",
+                "reference": "442ecbc9e5ca663052c720bb2d5915723002e2fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Socket/zipball/442ecbc9e5ca663052c720bb2d5915723002e2fd",
+                "reference": "442ecbc9e5ca663052c720bb2d5915723002e2fd",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0",
+                "hoa/stream": "~0.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Socket\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Socket library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "Socket",
+                "client",
+                "library",
+                "node",
+                "server",
+                "tcp",
+                "udp"
+            ],
+            "time": "2014-12-09 17:47:18"
+        },
+        {
+            "name": "hoa/stream",
+            "version": "0.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Stream.git",
+                "reference": "b72466589f167685535782592aaf336851c8732a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Stream/zipball/b72466589f167685535782592aaf336851c8732a",
+                "reference": "b72466589f167685535782592aaf336851c8732a",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Stream\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Stream library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "Context",
+                "bucket",
+                "composite",
+                "filter",
+                "in",
+                "library",
+                "out",
+                "protocol",
+                "stream",
+                "wrapper"
+            ],
+            "time": "2014-12-09 17:48:09"
+        },
+        {
+            "name": "hoa/websocket",
+            "version": "2.14.12.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hoaproject/Websocket.git",
+                "reference": "f5db4c4bc70e0bd6a09310d9b72f87d5d4028519"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hoaproject/Websocket/zipball/f5db4c4bc70e0bd6a09310d9b72f87d5d4028519",
+                "reference": "f5db4c4bc70e0bd6a09310d9b72f87d5d4028519",
+                "shasum": ""
+            },
+            "require": {
+                "hoa/core": "~2.0",
+                "hoa/http": "~0.0",
+                "hoa/socket": "~0.0"
+            },
+            "suggest": {
+                "ext-openssl": "To get a better security when exchanging messages."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hoa\\Websocket\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Enderlin",
+                    "email": "ivan.enderlin@hoa-project.net"
+                },
+                {
+                    "name": "Hoa community",
+                    "homepage": "http://hoa-project.net/"
+                }
+            ],
+            "description": "The Hoa\\Websocket library.",
+            "homepage": "http://hoa-project.net/",
+            "keywords": [
+                "Socket",
+                "client",
+                "hybi",
+                "library",
+                "realtime",
+                "rfc6455",
+                "server",
+                "websocket"
+            ],
+            "time": "2014-12-09 17:52:41"
         },
         {
             "name": "incenteev/composer-parameter-handler",
