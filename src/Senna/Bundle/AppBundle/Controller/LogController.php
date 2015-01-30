@@ -19,5 +19,7 @@ class LogController extends ResourceController
         ;
 
         $resource = $this->domainManager->create($nodeData);
+
+        return $this->handleView($this->view($resource, 201));
     }
 }

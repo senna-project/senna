@@ -9,6 +9,10 @@ use Senna\Bundle\AppBundle\Model\NodeData;
 
 class NodeController extends ResourceController
 {
+    /**
+     * @param Node $node
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function dataAction(Node $node)
     {
         $node->getData();
@@ -22,19 +26,24 @@ class NodeController extends ResourceController
 
         return $this->handleView($view);
     }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function registerAction(Request $request)
     {
-        $data = $request->query->all();
-        $node = $this->get('senna.repository.node')->findOneBy(array('code' => $data['sender']));
+        $sender = $request->request->get('sender');
+        $data = $request->request->get('data');
+
+        $node = $this->get('senna.repository.node')->findOneBy(array('code' => $sender));
 
         $nodeData = (new NodeData())
             ->setNode($node)
-            ->setData($data['data'])
+            ->setData($data)
         ;
 
         $resource = $this->domainManager->create($nodeData);
-
-        exit;
 
         return $this->handleView($this->view($resource, 201));
     }
