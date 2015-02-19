@@ -39,6 +39,22 @@ body.user {
   color: #444;
 }
 
+body.user.login {
+  background: #E9EAE5;
+}
+body.user.login h1 {
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+}
+body.user.login h2{
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 300;
+  font-style: normal;
+  text-align: center;
+}
+
 #login-box {
   margin: auto;
   padding: 8% 0 0;
@@ -51,8 +67,29 @@ body.user {
   font-weight: 400;
   margin-left: 0;
   margin-top: 20px;
+  padding: 20px;
   overflow: hidden;
-  padding: 26px 24px 46px;
+  padding: 33px 43px 46px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.13);
+
+  input[type="text"], input[type="password"]  {
+    border: none;
+    background: #e4e6eb;
+    box-shadow: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    padding: 0px 10px;
+    height: 40px;
+    margin: 5px auto;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  input[type="submit"] {
+    margin-top: 10px;
+  }
 }
 
